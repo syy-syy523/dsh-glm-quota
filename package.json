@@ -1,0 +1,54 @@
+{
+  "name": "dsh-glm-quota",
+  "version": "1.0.0",
+  "description": "Minimal ad-free GLM Coding Plan quota chip for the dsh web composer: mini progress bars, peak/off-peak hint, inline SVG icon only",
+  "type": "module",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "glm",
+    "zhipuai",
+    "z.ai",
+    "coding-plan",
+    "quota",
+    "usage"
+  ],
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./typert": "./lib/typert.host.js",
+    "./remote": "./lib/typert.remote-client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "README.en.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "client": {
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-typert-protocol": ">=0.1.0-rc.7"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": { "optional": true },
+    "@deepseek-ai/dsh-typert-protocol": { "optional": true }
+  },
+  "license": "MIT",
+  "author": "syy-syy523",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syy-syy523/dsh-glm-quota.git"
+  },
+  "bugs": {
+    "url": "https://github.com/syy-syy523/dsh-glm-quota/issues"
+  },
+  "homepage": "https://github.com/syy-syy523/dsh-glm-quota#readme"
+}
