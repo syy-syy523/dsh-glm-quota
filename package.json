@@ -1,7 +1,7 @@
 {
   "name": "dsh-glm-quota",
-  "version": "1.0.0",
-  "description": "Minimal ad-free GLM Coding Plan quota chip for the dsh web composer: mini progress bars, peak/off-peak hint, inline SVG icon only",
+  "version": "1.0.1",
+  "description": "DSH plugin: Zhipu/GLM Coding Plan quota chip (5h / weekly / MCP windows) with host-side caching",
   "type": "module",
   "keywords": [
     "dsh",
@@ -38,8 +38,12 @@
     "@deepseek-ai/dsh-typert-protocol": ">=0.1.0-rc.7"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/cordis": { "optional": true },
-    "@deepseek-ai/dsh-typert-protocol": { "optional": true }
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-typert-protocol": {
+      "optional": true
+    }
   },
   "license": "MIT",
   "author": "syy-syy523",

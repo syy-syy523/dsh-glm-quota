@@ -6,10 +6,11 @@
 
 - **无广告**：没有任何邀请返利链接，点击读条直达官方额度控制台
 - **无外部资源**：内联 SVG 图标，不加载任何第三方 CDN 资产
-- **迷你进度条**：每个配额窗口（5 小时滚动 / 每周）一条 36px 进度条，颜色随用量分级（绿 → 琥珀 ≥60% → 红 ≥85%）
-- **悬停详情**：精确百分比、重置倒计时、峰谷计费时段（北京时间工作日 14:00–18:00 高峰全额抵扣，其余时段 5 折）、套餐档位
+- **迷你进度条**：每个配额窗口（5 小时滚动 / 每周 / MCP 工具调用）一条 36px 进度条，颜色随用量分级（绿 → 琥珀 ≥60% → 红 ≥85%）
+- **悬停详情**：精确百分比、MCP 调用次数、重置倒计时、峰谷计费时段（北京时间工作日 14:00–18:00 高峰全额抵扣，其余时段 5 折）、套餐档位、错误信息
 - **`/glm-quota` 命令**：在对话里输出完整文字报告
 - **密钥安全**：API key 只在 dsh 宿主端通过凭据机制解析，绝不进入浏览器
+- **节流友好**：宿主侧 60s 缓存 + 并发合并，多个浏览器标签页也只打一次上游接口；HTTP 429 按 Retry-After 退避并继续显示旧数据
 
 ## 安装
 
@@ -32,15 +33,27 @@ pnpm add dsh-glm-quota
       name: 'dsh-glm-quota'
 ```
 
+> ⚠️ 新建 profile 的 `cordis.patch.yml` 初始内容是 `[]`（空数组占位符）。直接在其后追加列表项会产生无效 YAML——请先把 `[]` 删掉再粘贴上面的内容。
+
 重启 `dsh web` 并硬刷新页面（Ctrl+Shift+R）生效。
+
+要从 GitHub 源码安装（末发布 npm 的版本）：
+
+```sh
+dsh plugin --profile web add github:syy-syy523/dsh-glm-quota
+```
 
 ## 配置
 
-在 `~/.dsh/.credentials.yaml` 写入你的 BigModel API key（即 GLM Coding Plan 所用的 key）：
+插件通过凭据引用名 `ZAI_CODING_CN_API_KEY` 读 key——与 dsh 内置的智谱 provider 共用。**如果你已在 dsh 设置界面配置过 GLM 模型的 API key，无需任何额外配置**。
+
+否则在 `~/.dsh/.credentials.yaml` 写入你的 BigModel API key（即 GLM Coding Plan 所用的 key）：
 
 ```yaml
 ZAI_CODING_CN_API_KEY: <your key>
 ```
+
+未配置 key 时胶囊自动隐藏，零上游请求。
 
 海外（Z.ai 全球端点）用户可切换 base URL：
 
