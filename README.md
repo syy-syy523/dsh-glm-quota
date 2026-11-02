@@ -43,6 +43,16 @@ pnpm add dsh-glm-quota
 dsh plugin --profile web add github:syy-syy523/dsh-glm-quota
 ```
 
+## 版本兼容
+
+| dsh 版本 | 插件版本 | 安装 |
+|---|---|---|
+| ≥ 0.2.0 | ≥ 1.0.2 | `github:syy-syy523/dsh-glm-quota`（默认拉 main） |
+| 0.1.x | 1.0.1（旧版） | `github:syy-syy523/dsh-glm-quota#v1.0.1` |
+
+> 1.0.2 适配 dsh 0.2.x typert 协议的 `create()` 严格编解码器；
+> 在 0.1.x 上请勿升级，继续使用 `#v1.0.1`。
+
 ## 配置
 
 插件通过凭据引用名 `ZAI_CODING_CN_API_KEY` 读 key——与 dsh 内置的智谱 provider 共用。**如果你已在 dsh 设置界面配置过 GLM 模型的 API key，无需任何额外配置**。

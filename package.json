@@ -1,6 +1,6 @@
 {
   "name": "dsh-glm-quota",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "DSH plugin: Zhipu/GLM Coding Plan quota chip (5h / weekly / MCP windows) with host-side caching",
   "type": "module",
   "keywords": [

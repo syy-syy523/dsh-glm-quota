@@ -3,6 +3,18 @@
 记录用户可感知的变化；格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 版本号见 `package.json`。
 
+## [1.0.2] - 2026-11-02
+
+### 修复
+
+- **适配 dsh 0.2.x typert 协议**：宿主面与客户端面的 `glmQuota/snapshot`
+  result codec 由旧版 `schema:` 字段迁移为惰性 `create()` 工厂（返回 zod
+  schema），修复 dsh ≥ 0.2.0 启动时报
+  `result codec has no create() factory` 导致插件激活失败的问题。
+- 浏览器端 `client.js` 同步迁移：手写 `parse()` 校验替换为
+  `require("zod")` + `create:` 工厂，与官方 0.2.x 插件一致。
+- 旧版 dsh（0.1.x）请继续使用 [1.0.1]（`#v1.0.1`）。
+
 ## [1.0.1] - 2026-09-23
 
 ### 新增

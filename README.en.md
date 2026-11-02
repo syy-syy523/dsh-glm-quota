@@ -41,6 +41,16 @@ To install from GitHub source (versions not yet on npm):
 dsh plugin --profile web add github:syy-syy523/dsh-glm-quota
 ```
 
+## Version compatibility
+
+| dsh version | Plugin version | Install |
+|---|---|---|
+| ≥ 0.2.0 | ≥ 1.0.2 | `github:syy-syy523/dsh-glm-quota` (main by default) |
+| 0.1.x | 1.0.1 (legacy) | `github:syy-syy523/dsh-glm-quota#v1.0.1` |
+
+> 1.0.2 adapts to the dsh 0.2.x typert protocol's `create()` strict codec
+> factory. Do not upgrade on dsh 0.1.x — keep using `#v1.0.1`.
+
 ## Configuration
 
 The plugin reads its key via the `ZAI_CODING_CN_API_KEY` credential ref — the same one dsh's built-in Zhipu provider uses. **If you have already configured a GLM model API key in dsh's settings UI, no extra setup is needed.**
